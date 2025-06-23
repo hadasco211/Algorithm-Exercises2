@@ -87,21 +87,17 @@ public class DFSEdgeClassification {
         g.dfs();
         g.classifyEdges();
 
-        // הצגת זמני d ו־f
-        System.out.println("\nזמני גילוי וסיום:");
-        for (String v : g.d.keySet()) {
-            System.out.printf("%s: d=%d, f=%d%n", v, g.d.get(v), g.f.get(v));
-        }
 
-        System.out.println("\nצומת | d  | f  | π");
-        System.out.println("----------------------");
+        System.out.println("\nd   | f   | π     | vertex");
+        System.out.println("---------------------------");
+
         for (String v : g.d.keySet()) {
             String parent = g.parent.get(v);
-            System.out.printf("%-5s | %-2d | %-2d | %s%n",
-                    v,
+            System.out.printf("%-3d | %-3d | %-5s | %s%n",
                     g.d.get(v),
                     g.f.get(v),
-                    parent == null ? "null" : parent
+                    parent == null ? "null" : parent,
+                    v
             );
         }
     }
