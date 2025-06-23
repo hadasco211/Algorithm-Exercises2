@@ -92,5 +92,17 @@ public class DFSEdgeClassification {
         for (String v : g.d.keySet()) {
             System.out.printf("%s: d=%d, f=%d%n", v, g.d.get(v), g.f.get(v));
         }
+
+        System.out.println("\nצומת | d  | f  | π");
+        System.out.println("----------------------");
+        for (String v : g.d.keySet()) {
+            String parent = g.parent.get(v);
+            System.out.printf("%-5s | %-2d | %-2d | %s%n",
+                    v,
+                    g.d.get(v),
+                    g.f.get(v),
+                    parent == null ? "null" : parent
+            );
+        }
     }
 }
